@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="Form.css">
+</head>
+<body>
+    <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <!-- <p>LOGO.</p> -->
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="link active">Home</a></li>
+                    <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/" class="link">Blog</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button id="loginbtn " class="btn white-btn" onclick="login()">Login</button>
+                <button id="registerbtn" class="btn" onclick="register()">Register</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+    </nav>
+    <!---------form---------->
+    <div class="form-box">
+        <!----------login form-->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span> Don't have an account?<a href='#' onclick="register()">Sign Up</a></span>
+                <header>Login</header>
+            </div>
+            <form> <!-- Adding form element here -->
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Username or Email" id="username">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Password" id="password" >
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                </div>
+                <!-- Move the button inside the form -->
+                <div class="input-box">
+                    <button type="submit" class="submit" href="index.html" id="login-btn">Sign In</button>
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="login-check">
+                        <label for="login-check">Remember Me</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">Forgot Password?</a></label>
+                    </div>
+                </div>
+            </form> <!-- Closing form element here -->
+        </div>
+        
+        <!---------regitration form-->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Have an account?<a href='#' onclick="login()">Login</a></span>
+                <header>SignUp</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Firstname.." id="fname">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Lastname.." id="lname">
+                    <i class="bx bx-user"></i>
+                </div>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" placeholder="Email" id="email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="input-field" placeholder="Phone.no" id="phn">
+                    <i class="bx bx-phone"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Password" id="pass">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <button type="submit" class="submit" id="sub">Register</button>
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check">Remember Me</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">Terms & Conditions</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Script imports -->
+<!-- Add the Firebase Auth script import -->
+<script type="module">
+    // Import necessary Firebase modules
+    // Imports for Firebase Authentication and Realtime Database
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+// import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+// import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDwHRHhDvI42cS2aBxafvGOo3IugY1HlnI",
+    authDomain: "login-with-firebase-data-b0be1.firebaseapp.com",
+    databaseURL: "https://login-with-firebase-data-b0be1-default-rtdb.firebaseio.com",
+    projectId: "login-with-firebase-data-b0be1",
+    storageBucket: "login-with-firebase-data-b0be1.appspot.com",
+    messagingSenderId: "864516736205",
+    appId: "1:864516736205:web:a0bfd88e98c8d8a5b11584",
+    measurementId: "G-E6288PNPV0"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); // Initialize Firebase Auth
+const db = getDatabase(app); // Initialize Firebase Realtime Database
+
+// Function to handle login with Firebase Auth
+function loginUser(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const emailInput = document.getElementById("email").value;
+    const passwordInput = document.getElementById("pass").value;
+
+    // Use Firebase Auth signInWithEmailAndPassword method correctly
+    signInWithEmailAndPassword(auth, emailInput, passwordInput)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            alert("Login Successful!");
+            // You can redirect or perform other actions upon successful login
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage); // Display error message to user
+        });
+}
+
+// Event listener for the login form submission
+document.getElementById("login-btn").addEventListener("click", function(event) {
+    loginUser(event);
+});
+
+
+// Event listener for the registration form submission
+document.getElementById("sub").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Write user data to the Realtime Database
+    set(ref(db, 'users/' + document.getElementById('fname').value), {
+        username: document.getElementById('fname').value + ' ' + document.getElementById('lname').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('pass').value,
+        phone: document.getElementById('phn').value
+    }).then(() => {
+        alert("Registration Successfully Done!");
+    }).catch((error) => {
+        console.error("Error registering user: ", error);
+    });
+});
+
+</script>
+
+
+<script src="Form.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- const firebaseConfig = {
+    apiKey: "AIzaSyDwHRHhDvI42cS2aBxafvGOo3IugY1HlnI",
+    authDomain: "login-with-firebase-data-b0be1.firebaseapp.com",
+    projectId: "login-with-firebase-data-b0be1",
+    storageBucket: "login-with-firebase-data-b0be1.appspot.com",
+    messagingSenderId: "864516736205",
+    appId: "1:864516736205:web:a0bfd88e98c8d8a5b11584",
+    measurementId: "G-E6288PNPV0"
+  }; -->

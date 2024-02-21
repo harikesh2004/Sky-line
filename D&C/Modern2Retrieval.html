@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Interest Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            font-family: 'poppins','sans-serif';
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: calc(25% - 20px); /* Adjusted for margins and paddings */
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 5px 5px 10px orangered;
+            border:2px solid orange;
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collaboration Interest Forms</h1>
+
+    <div class="card-container" id="cardContainer"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyA9bXhWQ4omUmUW3G_Fy2ZhwyULwIcc-S8",
+    authDomain: "construction2-30f70.firebaseapp.com",
+    projectId: "construction2-30f70",
+    storageBucket: "construction2-30f70.appspot.com",
+    messagingSenderId: "713214843514",
+    appId: "1:713214843514:web:d794c3acddf65eac45f9c3",
+    measurementId: "G-01J69BGHWE"
+  };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        const cardContainer = document.getElementById('cardContainer');
+
+        // Function to create a card
+        function createCard(data) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            const companyName = document.createElement('h2');
+            companyName.textContent = data.companyName;
+
+            const contactPerson = document.createElement('p');
+            contactPerson.textContent = `Contact Person: ${data.contactPerson}`;
+
+            const companyAddress = document.createElement('p');
+            companyAddress.textContent = `Address: ${data.companyAddress}`;
+
+            const contactEmail = document.createElement('p');
+            contactEmail.textContent = `Email: ${data.contactEmail}`;
+
+            const phoneNumber = document.createElement('p');
+            phoneNumber.textContent = `Phone: ${data.phoneNumber}`;
+
+            // Append elements to card
+            card.appendChild(companyName);
+            card.appendChild(contactPerson);
+            card.appendChild(companyAddress);
+            card.appendChild(contactEmail);
+            card.appendChild(phoneNumber);
+
+            // Append card to card container
+            cardContainer.appendChild(card);
+        }
+
+        // Retrieve data from Firebase and create cards
+        const formsRef = ref(db, 'enrollmentForms');
+        onValue(formsRef, (snapshot) => {
+            const data = snapshot.val();
+            for (const formKey in data) {
+                const formData = data[formKey];
+                createCard(formData);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+      
+      /* Define the style for the header */
+      * {
+          padding: 0;
+          margin: 0;
+      }
+      body{
+          font-family: 'Outfit', sans-serif;
+      }
+      .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #ffffff;
+          font-size: larger;
+          color: #2673ef;
+          padding: 10px;
+          height: 60px; /* Add this line */
+          box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+      }
+      
+      
+      /* Define the style for the logo */
+      .logo {
+          font-size: 29px;
+          font-weight: bold;
+          padding-left: 10%;
+      }
+      
+      /* Define the style for the navigation links */
+      .nav {
+          list-style: none;
+          display: flex;
+          margin: 300px;
+      }
+      
+      .nav li {
+          margin: 0 20px;
+      }
+      
+      .nav a {
+          color: #4a8cf7;
+          text-decoration: none;
+          font-weight:600;
+      }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;/* Distribute space between items*/
+  margin-left: -5px; /*Adjust margin to avoid extra space at the beginning
+}
+
+.card {
+  /* border: 3px solid black; */
+  border:2px solid black;
+  width: calc(25% - 7.5px); /* Calculate width to fit 4 cards in a row */
+  margin: 5px; /* Adjust margin as needed */
+  height: 500px; /* Set fixed height for the card */
+  box-shadow: 0px -25px 20px -20px rgba(195, 6, 6, 0.45), 0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+}
+.card:hover{
+  box-shadow: 25px 0 20px -20px 		rgb(255, 229, 180) , -25px 0 20px -20px 			rgb(255, 229, 180);
+}
+/*	rgb(204, 85, 0)*/
+.card-body {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  text-align: left; /* Align text to left */
+  height: 100%; /* Occupy full height of the card */
+}
+
+.card-body p {
+  margin-bottom: 0.5rem; /* Add space between paragraphs */
+}
+
+p {
+  font-weight: 500; /* Set font weight */
+}
+
+nav {
+    /*background-color: #010718;*/
+    /* background: linear-gradient(	rgb(15, 82, 186),transparent); */
+    height:100px;
+    transition:.9s ease-out;
+    box-shadow: 0.8px 0.3px 10px #010718;
+    /*background-color: #135d76;*/	/*#1F51FF;*/
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* text-align: right; */
+}
+
+li {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top:32px;
+    margin-right:55px;
+    font-size:23px;
+    font-weight:500;
+}
+
+a {
+    color: #005A9C;
+    text-decoration: none;
+    position: relative;
+    font-weight:600;
+  
+}
+
+a.active {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+h1{
+  margin-top:16px;
+}
+    </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">SkyLine</div>
+    <ul class="nav">
+        <li><a href="/home/index.html">Home</a></li>
+        <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+        <li><a href="/home/form.html">Login</a></li>
+    </ul>
+</div>
+    <h1>Registrations</h1>
+    <div class="total">
+    <ul id="registrations-list"></ul>
+</div>
+
+    <!-- Include Firebase SDK using script tags -->
+    <!-- Firebase compatibility version -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase , ref , onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        
+        // Your Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBfSL1tEw17W2n0GvNbHYi4-i9BbgISbj4",
+          authDomain: "solar-panels-e8ee1.firebaseapp.com",
+          databaseURL: "https://solar-panels-e8ee1-default-rtdb.firebaseio.com",
+          projectId: "solar-panels-e8ee1",
+          storageBucket: "solar-panels-e8ee1.appspot.com",
+          messagingSenderId: "141120557968",
+          appId: "1:141120557968:web:c7d17b53018ef8744c9915",
+          measurementId: "G-KLFGF00ZK9"
+        };
+            
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    
+        // Reference to the "registrations" node in the database
+        const registrationsRef = ref(db, 'registrations');
+    
+        // Function to retrieve the data from Firebase and display it
+        function retrieveData() {
+          onValue(registrationsRef, (snapshot) => {
+            const registrationsList = document.getElementById('registrations-list');
+    
+            if (snapshot.exists()) {
+              snapshot.forEach((childSnapshot) => {
+                const registration = childSnapshot.val();
+                const cardItem = document.createElement('li');
+                cardItem.classList.add('card');
+                cardItem.innerHTML = `
+                  <strong>Full Name:</strong> ${registration.fullName}<br>
+                  <strong>Email:</strong> ${registration.email}<br>
+                  <strong>Phone:</strong> ${registration.phone}<br>
+                  <strong>Address:</strong> ${registration.address}<br>
+                  <strong>City:</strong> ${registration.city}<br>
+                  <strong>Comments:</strong> ${registration.comments}<br>
+                  <strong>Existing Equipment:</strong> ${registration.existingEquipment}<br>
+                  <strong>Existing Details:</strong> ${registration.existingDetails}<br>
+                  <strong>Monthly Bill:</strong> ${registration.monthlyBill}<br>
+                  <strong>Property Type:</strong> ${registration.propertyType}<br>
+                  <strong>Roof Material:</strong> ${registration.roofMaterial}<br>
+                  <strong>Roof Space:</strong> ${registration.roofSpace}<br>
+                  <strong>Roof Type:</strong> ${registration.roofType}<br>
+                  <strong>State:</strong> ${registration.state}<br>
+                `;
+                registrationsList.appendChild(cardItem);
+              });
+            } else {
+              registrationsList.innerHTML = '<li>No registrations found.</li>';
+            }
+          });
+        }
+    
+        // Call the function to retrieve data and display it
+        retrieveData();
+    </script>
+    
+</body>
+</html>

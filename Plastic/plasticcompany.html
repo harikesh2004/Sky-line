@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plastic Recycling Company Form</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+    
+    /* Define the style for the header */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Outfit', sans-serif;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        font-size: larger;
+        color: #0c971c;
+        padding: 10px;
+        height: 60px; /* Add this line */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    }
+    
+    
+    /* Define the style for the logo */
+    .logo {
+        font-size: 29px;
+        font-weight: bold;
+        padding-left: 10%;
+    }
+    
+    /* Define the style for the navigation links */
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 300px;
+    }
+    
+    .nav li {
+        margin: 0 20px;
+    }
+    
+    .nav a {
+        color: #0c971c;
+        text-decoration: none;
+        font-weight:600;
+    }
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top:20px;
+  }
+  fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  textarea {
+    width: calc(100% - 22px); /* Adjusted for input padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  .sub {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #007bff;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .sub:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">SkyLine</div>
+    <ul class="nav">
+        <li><a href="/home/index.html">Home</a></li>
+        <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+        <li><a href="/home/form.html">Login</a></li>
+    </ul>
+</div>
+  <h1><center>Plastic Recycling Company Form</center></h1>
+  <form action="/process_plastic" method="post">
+    <fieldset>
+      <legend>Company Information</legend>
+      <label for="companyName">Company Name:</label><br>
+      <input type="text" id="companyName" name="companyName" required><br><br>
+      <label for="contactPerson">Contact Person:</label><br>
+      <input type="text" id="contactPerson" name="contactPerson" required><br><br>
+      <label for="email">Email Address:</label><br>
+      <input type="text" id="email" name="email" required><br><br>
+      <label for="phone">Phone Number:</label><br>
+      <input type="text" id="phone" name="phone" required><br><br>
+    </fieldset>
+    <fieldset>
+      <legend>Recycling Process Details</legend>
+      <label for="processDescription">Description of Recycling Process:</label><br>
+      <textarea id="processDescription" name="processDescription" required></textarea><br><br>
+      <label for="offer">Offer to Plastic Seller:</label><br>
+      <textarea id="offer" name="offer" required></textarea><br><br>
+    </fieldset>
+    <input type="submit" value="Submit" class="sub">
+  </form>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAVMSLXmkFKT3phpxFI8VoChQgbFOTMkYE",
+    authDomain: "plastic-company-5bd6b.firebaseapp.com",
+    databaseURL: "https://plastic-company-5bd6b-default-rtdb.firebaseio.com",
+    projectId: "plastic-company-5bd6b",
+    storageBucket: "plastic-company-5bd6b.appspot.com",
+    messagingSenderId: "676848296997",
+    appId: "1:676848296997:web:c48214062a64ce6c6d0bcc",
+    measurementId: "G-41L19GDWJ9"
+  };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form values
+        const companyName = document.getElementById('companyName').value;
+        const contactPerson = document.getElementById('contactPerson').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const processDescription = document.getElementById('processDescription').value;
+        const offer = document.getElementById('offer').value;
+
+        // Prepare data object
+        const data = {
+            companyName,
+            contactPerson,
+            email,
+            phone,
+            processDescription,
+            offer
+        };
+
+        // Store data in Firebase
+        set(ref(db, 'plasticRecyclingForms/' + companyName), data)
+            .then(() => {
+                alert("Form Submitted Successfully!");
+                // Optionally, you can redirect the user to another page after successful submission
+                // window.location.href = "https://example.com/thank-you-page";
+            })
+            .catch((error) => {
+                console.error("Error submitting form:", error);
+                alert("An error occurred while submitting the form. Please try again later.");
+            });
+    });
+</script>
+
+</body>
+</html>

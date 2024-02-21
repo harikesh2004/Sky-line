@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Interest Form</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Define the style for the header */
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    font-size: larger;
+    color: #2673ef;
+    padding: 10px;
+    height: 60px; /* Add this line */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+}
+
+
+/* Define the style for the logo */
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Define the style for the navigation links */
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 300px;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav a {
+    color: #4a8cf7;
+    text-decoration: none;
+    font-weight:600;
+
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a.active,
+    a:hover {
+        color: #007bff;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    legend {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    textarea,
+    select {
+        width: calc(100% - 22px); /* Adjusted for input padding */
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 20px;
+    }
+
+    .sub {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: #007bff;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .sub:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    </style>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+    <h1>Form for Collaboration Interest</h1>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Company Information</legend>
+            <label for="companyName">Company Name:</label><br>
+            <input type="text" id="companyName" name="companyName" required><br><br>
+
+            <label for="contactPerson">Contact Person:</label><br>
+            <input type="text" id="contactPerson" name="contactPerson" required><br><br>
+
+            <label for="companyAddress">Company Address:</label><br>
+            <input type="text" id="companyAddress" name="companyAddress" required><br><br>
+
+            <label for="websiteURL">Website URL:</label><br>
+            <input type="url" id="websiteURL" name="websiteURL"><br><br>
+
+            <label for="contactEmail">Contact Email:</label><br>
+            <input type="email" id="contactEmail" name="contactEmail" required><br><br>
+
+            <label for="phoneNumber">Phone Number:</label><br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Company Profile</legend>
+            <label for="overview">Brief Overview of the Company:</label><br>
+            <textarea id="overview" name="overview" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="yearsOperation">Years in Operation:</label><br>
+            <input type="number" id="yearsOperation" name="yearsOperation" required><br><br>
+
+            <label for="companySize">Size of the Company (Number of Employees):</label><br>
+            <input type="number" id="companySize" name="companySize" required><br><br>
+
+            <label for="specialization">Areas of Specialization within Construction:</label><br>
+            <input type="text" id="specialization" name="specialization" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Collaboration Preferences</legend>
+            <label for="partnerships">Types of Partnerships or Collaborations Seeking:</label><br>
+            <input type="text" id="partnerships" name="partnerships" required><br><br>
+
+            <label for="projectTypes">Preferred Types of Projects or Industries to Collaborate On:</label><br>
+            <input type="text" id="projectTypes" name="projectTypes" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+            <label for="additionalInfo">Any Additional Comments or Information:</label><br>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
+
+        <input type="submit" value="Submit" class="sub">
+    </form>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyA9bXhWQ4omUmUW3G_Fy2ZhwyULwIcc-S8",
+    authDomain: "construction2-30f70.firebaseapp.com",
+    projectId: "construction2-30f70",
+    storageBucket: "construction2-30f70.appspot.com",
+    messagingSenderId: "713214843514",
+    appId: "1:713214843514:web:d794c3acddf65eac45f9c3",
+    measurementId: "G-01J69BGHWE"
+  };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const companyName = document.getElementById('companyName').value;
+            const contactPerson = document.getElementById('contactPerson').value;
+            const companyAddress = document.getElementById('companyAddress').value;
+            const websiteURL = document.getElementById('websiteURL').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const overview = document.getElementById('overview').value;
+            const yearsOperation = document.getElementById('yearsOperation').value;
+            const companySize = document.getElementById('companySize').value;
+            const specialization = document.getElementById('specialization').value;
+            const partnerships = document.getElementById('partnerships').value;
+            const projectTypes = document.getElementById('projectTypes').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+    
+            // Prepare data object
+            const data = {
+                companyName,
+                contactPerson,
+                companyAddress,
+                websiteURL,
+                contactEmail,
+                phoneNumber,
+                overview,
+                yearsOperation,
+                companySize,
+                specialization,
+                partnerships,
+                projectTypes,
+                additionalInfo
+            };
+    
+            // Store data in Firebase
+            set(ref(db, 'enrollmentForms/' + companyName), data);
+            alert("Registration Successful!");
+        });
+    </script>
+    
+</body>
+</html>

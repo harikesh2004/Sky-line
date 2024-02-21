@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Installation Registration Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+    
+    /* Define the style for the header */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Outfit', sans-serif;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        font-size: larger;
+        color: #e00d33;
+        padding: 10px;
+        height: 60px; /* Add this line */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    }
+    
+    
+    /* Define the style for the logo */
+    .logo {
+        font-size: 29px;
+        font-weight: bold;
+        padding-left: 10%;
+    }
+    
+    /* Define the style for the navigation links */
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 300px;
+    }
+    
+    .nav li {
+        margin: 0 20px;
+    }
+    
+    .nav a {
+        color: #e00d33  ;
+        text-decoration: none;
+        font-weight:600;
+    }
+    
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        a.active,
+        a:hover {
+            color: #007bff;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+    
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+           
+        }
+    
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    
+        legend {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea,
+        select {
+            width: calc(100% - 22px); /* Adjusted for input padding */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+    
+        .sub {
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+        }
+    
+        .sub:hover {
+            background-color: #0056b3;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+</style>    
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+<h1>Solar Panel Installation Registration Form</h1>
+
+<form action="#" method="POST">
+    <fieldset>
+        <legend>Personal Information:</legend>
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName" required><br>
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
+        <label for="state">State:</label><br>
+<input type="text" id="state" name="state" required><br>
+<label for="city">City:</label><br>
+<input type="text" id="city" name="city" required><br>
+        <label for="address">Home Address:</label><br>
+        <!-- <input type="text" id="address" name="address" required><br> -->
+        <textarea id="address" name="address" rows="6" cols="40" placeholder="D.no,Dist,streetname" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Property Details:</legend>
+        <label for="propertyType">Type of Property:</label><br>
+        <input type="text" id="propertyType" name="propertyType" required><br>
+        <label for="roofType">Roof Type:</label><br>
+        <input type="text" id="roofType" name="roofType" required><br>
+        <label for="roofMaterial">Roof Material:</label><br>
+        <input type="text" id="roofMaterial" name="roofMaterial" required><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Energy Usage Information:</legend>
+        <label for="monthlyBill">Average Monthly Electricity Bill:</label><br>
+        <input type="number" id="monthlyBill" name="monthlyBill" required><br>
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>Technical Considerations:</legend>
+        <label for="roofSpace">Available Roof Space (Approx. Sq. Footage):</label><br>
+        <input type="number" id="roofSpace" name="roofSpace" required><br>
+        <label for="existingEquipment">Existing Solar Panels or Solar Equipment:</label><br>
+        <input type="radio" id="existingYes" name="existingEquipment" value="yes" onchange="showAdditionalFields(this)"><label for="existingYes">Yes</label>
+        <input type="radio" id="existingNo" name="existingEquipment" value="no" onchange="showAdditionalFields(this)"><label for="existingNo">No</label><br>
+        <div id="additionalFields" style="display: none;">
+            <label for="existingDetails">Details of Existing Solar Panels or Equipment:</label><br>
+            <input type="text" id="existingDetails" name="existingDetails"><br>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Additional Comments or Questions:</legend>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Upload Photos of Your Roof (Optional):</legend>
+        <input type="file" id="roofPhotos" name="roofPhotos" accept="image/*">
+    </fieldset>
+
+    <fieldset>
+        <legend>Terms and Conditions:</legend>
+        <input type="checkbox" id="termsAgree" name="termsAgree" required>
+        <label for="termsAgree">I agree to the Terms and Conditions.</label><br>
+    </fieldset>
+
+    <input type="submit" value="Submit" class="sub" id="submt">
+</form>
+<script src="solar.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js";
+    
+    const firebaseConfig = {
+    apiKey: "AIzaSyBfSL1tEw17W2n0GvNbHYi4-i9BbgISbj4",
+    authDomain: "solar-panels-e8ee1.firebaseapp.com",
+    databaseURL: "https://solar-panels-e8ee1-default-rtdb.firebaseio.com",
+    projectId: "solar-panels-e8ee1",
+    storageBucket: "solar-panels-e8ee1.appspot.com",
+    messagingSenderId: "141120557968",
+    appId: "1:141120557968:web:c7d17b53018ef8744c9915",
+    measurementId: "G-KLFGF00ZK9"
+  };
+    
+    const app = initializeApp(firebaseConfig);  
+    const db = getDatabase(app);
+
+    document.getElementById("submt").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        // Retrieve user input values
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const state = document.getElementById('state').value; // Add ID for state field in your HTML
+        const city = document.getElementById('city').value; // Add ID for city field in your HTML
+        const address = document.getElementById('address').value;
+        const propertyType = document.getElementById('propertyType').value;
+    const roofType = document.getElementById('roofType').value;
+    const roofMaterial = document.getElementById('roofMaterial').value;
+    const monthlyBill = document.getElementById('monthlyBill').value;
+    const roofSpace = document.getElementById('roofSpace').value;
+    const existingEquipment = document.querySelector('input[name="existingEquipment"]:checked');
+    const existingDetails = document.getElementById('existingDetails').value;
+    const comments = document.getElementById('comments').value;
+
+    // Check if all required fields are filled
+    if (!fullName || !email || !phone || !state || !city || !address || !propertyType || !roofType || !roofMaterial || !monthlyBill || !roofSpace || !existingEquipment) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+
+        // Push data to Firebase database
+        try {
+            set(ref(db, 'registrations/' + fullName), {
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                state: state,
+                city: city,
+                address: address,
+                // Add other fields here...
+                propertyType: propertyType,
+            roofType: roofType,
+            roofMaterial: roofMaterial,
+            monthlyBill: monthlyBill,
+            roofSpace: roofSpace,
+            existingEquipment: existingEquipment ? existingEquipment.value : null,
+            existingDetails: existingDetails,
+            comments: comments
+            });
+            alert("Registration Successfully Done!");
+        } catch (error) {
+            console.error("Error storing data in Firebase:", error);
+            alert("An error occurred. Please try again later.");
+        }
+    });
+</script>
+
+</body>
+</html>

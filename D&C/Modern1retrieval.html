@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Retrieval Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        * {
+            margin:0;
+            padding:0;
+        }@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Define the style for the header */
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    font-size: larger;
+    color: #2673ef;
+    padding: 10px;
+    height: 60px; /* Add this line */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+}
+
+
+/* Define the style for the logo */
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Define the style for the navigation links */
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 300px;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav a {
+    color: #4a8cf7;
+    text-decoration: none;
+    font-weight:600;
+}
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a.active,
+        a:hover {
+            color: #007bff;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        #enrollmentFormsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    
+}
+
+.enrollmentFormCard {
+    width: calc(25% - 10px); /* Calculate width to fit 4 cards in a row with padding */
+    margin: 15px; /* Adjust margin as needed */
+    padding: 10px; /* Add padding */
+    border: 2px solid orangered; /* Set border color to orange-red */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(255, 192, 203, 0.5); /* Set box shadow color to light pink */
+    list-style-type: none; /* Remove bullet points */
+    box-sizing: border-box;
+}
+.enrollmentFormCard:hover{
+    box-shadow: 0px -25px 20px -30px #9c1d4d73, 25px 0 20px -20px #9c1d4d73, 0px 25px 20px -20px #9c1d4d73, -25px 0 20px -20px #9c1d4d73;
+}
+        </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+    <h1>Enrollment here for Tie Up with Companies</h1>
+    <form action="Modern2.html" method="POST" id="enrollmentForm">
+        <!-- Form fields here -->
+    </form>
+    <div id="enrollmentFormsContainer"></div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyAAp6uEd7UeezW8AYFLlIYqoRVovetEWdM",
+    authDomain: "construction1-7a509.firebaseapp.com",
+    databaseURL: "https://construction1-7a509-default-rtdb.firebaseio.com",
+    projectId: "construction1-7a509",
+    storageBucket: "construction1-7a509.appspot.com",
+    messagingSenderId: "148911681516",
+    appId: "1:148911681516:web:03254ad823e3f7d4d09ac9",
+    measurementId: "G-28YRD3LZRH"
+  };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Reference to the enrollment forms data
+        const enrollmentFormsRef = ref(db, 'enrollmentForms');
+
+        // Function to display enrollment forms data
+        function displayEnrollmentForms(snapshot) {
+            const enrollmentForms = snapshot.val();
+            const enrollmentFormsContainer = document.getElementById('enrollmentFormsContainer');
+            enrollmentFormsContainer.innerHTML = ''; // Clear previous data
+            for (const formKey in enrollmentForms) {
+                if (enrollmentForms.hasOwnProperty(formKey)) {
+                    const form = enrollmentForms[formKey];
+                    const formElement = document.createElement('a');
+                    formElement.classList.add('enrollmentFormCard');
+                    formElement.href = 'Modern2.html';
+                    formElement.innerHTML = `
+                        <h2>${form.companyName}</h2>
+                        <p>Contact Person: ${form.contactPerson}</p>
+                        <p>Position/Title: ${form.positionTitle}</p>
+                        <p>Company Address: ${form.companyAddress}</p>
+                        <p>Website URL: ${form.websiteURL}</p>
+                        <p>Contact Email: ${form.contactEmail}</p>
+                        <p>Phone Number: ${form.phoneNumber}</p>
+                        <p>Overview: ${form.overview}</p>
+                        <p>Years in Operation: ${form.yearsOperation}</p>
+                        <p>Company Size: ${form.companySize}</p>
+                        <p>Specialization: ${form.specialization}</p>
+                        <p>Types of Partnerships Seeking: ${form.partnerships}</p>
+                        <p>Preferred Project Types: ${form.projectTypes}</p>
+                        <p>Portfolio Options: ${form.portfolioOption.join(', ')}</p>
+                        ${form.portfolioOption.includes('images') ? '<p>Project Images: ' + form.projectImages + '</p>' : ''}
+                        ${form.portfolioOption.includes('descriptions') ? '<p>Project Descriptions: ' + form.projectDescriptions + '</p>' : ''}
+                        <p>Additional Info: ${form.additionalInfo}</p>
+                    `;
+                    enrollmentFormsContainer.appendChild(formElement);
+                    
+                }
+            }
+        }
+        
+        // Listen for changes in the enrollment forms data
+        onValue(enrollmentFormsRef, displayEnrollmentForms, {
+            onlyOnce: true // Fetch data only once when the page loads
+        });
+        formElement.addEventListener('click', function() {
+                // Redirect to a new page
+                window.location.href = 'Modern2.html';
+            });
+    </script>
+</body>
+</html>

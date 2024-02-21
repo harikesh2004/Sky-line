@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  *{
+    font-family: 'poppins','sans-serif';
+    margin:0;
+    padding:0;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Define the style for the header */
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    font-size: larger;
+    color: #2673ef;
+    padding: 10px;
+    height: 60px; /* Add this line */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+}
+
+
+/* Define the style for the logo */
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Define the style for the navigation links */
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 300px;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav a {
+    color: #4a8cf7;
+    text-decoration: none;
+    font-weight:600;
+}
+    
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        a.active,
+        a:hover {
+            color: #007bff;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+    
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    
+        legend {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="url"],
+        textarea,
+        select {
+            width: calc(100% - 22px); /* Adjusted for input padding */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+    
+        .sub {
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+        }
+    
+        .sub:hover {
+            background-color: #0056b3;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+    <h1>Enrollment Form for Tie Up with Companies</h1>
+    <form action="#" method="POST" id="enrollmentForm">
+        <fieldset>
+            <legend>Company Information</legend>
+            <label for="companyName">Company Name:</label><br>
+            <input type="text" id="companyName" name="companyName" required><br><br>
+
+            <label for="contactPerson">Contact Person:</label><br>
+            <input type="text" id="contactPerson" name="contactPerson" required><br><br>
+
+            <label for="positionTitle">Position/Title:</label><br>
+            <input type="text" id="positionTitle" name="positionTitle"><br><br>
+
+            <label for="companyAddress">Company Address:</label><br>
+            <input type="text" id="companyAddress" name="companyAddress" required><br><br>
+
+            <label for="websiteURL">Website URL:</label><br>
+            <input type="url" id="websiteURL" name="websiteURL"><br><br>
+
+            <label for="contactEmail">Contact Email:</label><br>
+            <input type="email" id="contactEmail" name="contactEmail" required><br><br>
+
+            <label for="phoneNumber">Phone Number:</label><br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Company Profile</legend>
+            <label for="overview">Brief Overview of the Company:</label><br>
+            <textarea id="overview" name="overview" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="yearsOperation">Years in Operation:</label><br>
+            <input type="number" id="yearsOperation" name="yearsOperation" required><br><br>
+
+            <label for="companySize">Size of the Company (Number of Employees):</label><br>
+            <input type="number" id="companySize" name="companySize" required><br><br>
+
+            <label for="specialization">Areas of Specialization within Construction:</label><br>
+            <input type="text" id="specialization" name="specialization" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Collaboration Preferences</legend>
+            <label for="partnerships">Types of Partnerships or Collaborations Seeking:</label><br>
+            <input type="text" id="partnerships" name="partnerships" required><br><br>
+
+            <label for="projectTypes">Preferred Types of Projects or Industries to Collaborate On:</label><br>
+            <input type="text" id="projectTypes" name="projectTypes" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Portfolio</legend>
+            <label>Select portfolio options:</label><br>
+            <input type="checkbox" id="uploadImages" name="portfolioOption[]" value="images" onchange="toggleFields()">
+            <label for="uploadImages">Upload Images</label><br>
+        
+            <input type="checkbox" id="provideDescriptions" name="portfolioOption[]" value="descriptions" onchange="toggleFields()">
+            <label for="provideDescriptions">Provide Descriptions</label><br><br>
+        
+            <div id="imageUpload" style="display: none;">
+                <label for="projectImages">Upload Images (up to 5 files):</label><br>
+                <input type="file" id="projectImages" name="projectImages[]" multiple onchange="limitFiles(this, 5)"><br>
+                <small>Please upload up to 5 high-quality images in JPG or PNG format. Include images showcasing your past projects and modern construction techniques.</small><br><br>
+            </div>
+        
+            <div id="descriptionTextarea" style="display: none;">
+                <label for="projectDescriptions">Descriptions of Past Projects:</label><br>
+                <textarea id="projectDescriptions" name="projectDescriptions" rows="4" cols="50"></textarea><br><br>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+            <label for="additionalInfo">Any Additional Comments or Information:</label><br>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
+
+        <input type="submit" value="Submit" class="sub" id="submt">
+    </form>
+    <script src="modern1.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyAAp6uEd7UeezW8AYFLlIYqoRVovetEWdM",
+    authDomain: "construction1-7a509.firebaseapp.com",
+    databaseURL: "https://construction1-7a509-default-rtdb.firebaseio.com",
+    projectId: "construction1-7a509",
+    storageBucket: "construction1-7a509.appspot.com",
+    messagingSenderId: "148911681516",
+    appId: "1:148911681516:web:03254ad823e3f7d4d09ac9",
+    measurementId: "G-28YRD3LZRH"
+  };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    
+        document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const companyName = document.getElementById('companyName').value;
+            const contactPerson = document.getElementById('contactPerson').value;
+            const positionTitle = document.getElementById('positionTitle').value;
+            const companyAddress = document.getElementById('companyAddress').value;
+            const websiteURL = document.getElementById('websiteURL').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const overview = document.getElementById('overview').value;
+            const yearsOperation = document.getElementById('yearsOperation').value;
+            const companySize = document.getElementById('companySize').value;
+            const specialization = document.getElementById('specialization').value;
+            const partnerships = document.getElementById('partnerships').value;
+            const projectTypes = document.getElementById('projectTypes').value;
+            const portfolioOption = [];
+            if (document.getElementById('uploadImages').checked) {
+                portfolioOption.push('images');
+            }
+            if (document.getElementById('provideDescriptions').checked) {
+                portfolioOption.push('descriptions');
+            }
+            const projectImages = document.getElementById('projectImages').value;
+            const projectDescriptions = document.getElementById('projectDescriptions').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+    
+            // Prepare data object
+            const data = {
+                companyName,
+                contactPerson,
+                positionTitle,
+                companyAddress,
+                websiteURL,
+                contactEmail,
+                phoneNumber,
+                overview,
+                yearsOperation,
+                companySize,
+                specialization,
+                partnerships,
+                projectTypes,
+                portfolioOption,
+                projectImages,
+                projectDescriptions,
+                additionalInfo
+            };
+    
+            // Store data in Firebase
+            set(ref(db, 'enrollmentForms/' + companyName), data);
+            alert("Registration Successful!");
+        });
+    </script>
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plastic Selling Form</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+    
+    /* Define the style for the header */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Outfit', sans-serif;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        font-size: larger;
+        color: #0c971c;
+        padding: 10px;
+        height: 60px; /* Add this line */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    }
+    
+    
+    /* Define the style for the logo */
+    .logo {
+        font-size: 29px;
+        font-weight: bold;
+        padding-left: 10%;
+    }
+    
+    /* Define the style for the navigation links */
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 300px;
+    }
+    
+    .nav li {
+        margin: 0 20px;
+    }
+    
+    .nav a {
+        color: #0c971c;
+        text-decoration: none;
+        font-weight:600;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a.active,
+    a:hover {
+        color: #007bff;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    legend {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select {
+        width: calc(100% - 22px); /* Adjusted for input padding */
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 20px;
+    }
+
+    .sub {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: #007bff;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .sub:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+
+</style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+
+<h1>Sell Plastic Form</h1>
+
+<form action="/submit" method="post">
+    <fieldset>
+        <legend>Contact Information</legend>
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Location Details</legend>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="state">State/Province:</label><br>
+        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="zip">ZIP/Postal Code:</label><br>
+        <input type="text" id="zip" name="zip" required><br><br>
+
+        <label for="country">Country:</label><br>
+        <input type="text" id="country" name="country" required><br><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Plastic Details</legend>
+        <label for="plasticType">Type of Plastic:</label><br>
+        <select id="plasticType" name="plasticType" required>
+            <option value="">Select</option>
+            <option value="PET">PET</option>
+            <option value="HDPE">HDPE</option>
+            <option value="PVC">PVC</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <label for="condition">Condition of Plastic:</label><br>
+        <textarea id="condition" name="condition" required></textarea><br><br>
+
+        <label for="packaging">Packaging Details:</label><br>
+        <textarea id="packaging" name="packaging" required></textarea><br><br>
+
+        <label for="additionalInfo">Additional Information:</label><br>
+        <textarea id="additionalInfo" name="additionalInfo"></textarea><br><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Delivery Details</legend>
+        <label for="plasticSelling">Preferred Method of Plastic Selling:</label><br>
+        <input type="radio" id="plasticSelling" name="plasticSelling" value="pickup" required>
+        <label for="pickup">I will deliver the plastic to the recycling facility</label><br>
+        <input type="radio" id="plasticSelling" name="plasticSelling" value="delivery" required>
+        <label for="delivery">The recycling company will arrange pickup</label><br><br>
+
+        <label for="availability">Availability:</label><br>
+        <input type="text" id="availability" name="availability" required><br><br>
+        <label for="photos">Upload Photos:</label><br>
+<button onclick="openUploadDialog()">Upload Photos</button><br>
+<span id="uploadInstructions" style="display: none;">
+    <p>Please upload clear photos of your plastic materials.</p>
+    <p>
+Ensure the photos show:</p>
+    <ul>
+        <li>The overall view of the plastic materials</li>
+        <li>Close-up shots of individual items or sections</li>
+        <li>Any labels or markings on the plastic</li>
+    </ul>
+    <p>You can upload up to 5 photos.</p>
+    <input type="file" id="photos" name="photos" accept="image/*" multiple style="margin-top: 10px;"><br><br>
+    <button onclick="submitPhotos()">Submit Photos</button>
+</span>
+    </fieldset>
+
+    <fieldset>
+        <legend>Terms and Conditions</legend>
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the terms and conditions</label><br><br>
+    </fieldset>
+   <input type="submit" value="Submit" class="sub" id="submt">
+</form>
+<script src="plastic .js"></script>
+<script src="plastic.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase , ref , set} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAuMdVMfBpWrBJwXIVwefM8yYL3gqS2jyo",
+    authDomain: "plastic-1ebd8.firebaseapp.com",
+    databaseURL: "https://plastic-1ebd8-default-rtdb.firebaseio.com",
+    projectId: "plastic-1ebd8",
+    storageBucket: "plastic-1ebd8.appspot.com",
+    messagingSenderId: "59231060748",
+    appId: "1:59231060748:web:f187371df26af398bd3f29",
+    measurementId: "G-TEJXTWVCQQ"
+  };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    document.getElementById("submt").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const city = document.getElementById('city').value;
+        const state = document.getElementById('state').value;
+        const zip = document.getElementById('zip').value;
+        const country = document.getElementById('country').value;
+        const plasticType = document.getElementById('plasticType').value;
+        const quantity = document.getElementById('quantity').value;
+        const condition = document.getElementById('condition').value;
+        const packaging = document.getElementById('packaging').value;
+        const additionalInfo = document.getElementById('additionalInfo').value;
+        const plasticSelling = document.querySelector('input[name="plasticSelling"]:checked').value;
+        const availability = document.getElementById('availability').value;
+
+        // Push the form data to the database
+        set(ref(database, 'users/' + fullName), {
+            fullName: fullName,
+            email: email,
+            phone: phone,
+            address: address,
+            city: city,
+            state: state,
+            zip: zip,
+            country: country,
+            plasticType: plasticType,
+            quantity: quantity,
+            condition: condition,
+            packaging: packaging,
+            additionalInfo: additionalInfo,
+            plasticSelling: plasticSelling,
+            availability: availability
+        })
+        .then(() => {
+            alert("Registration Successfully Done!");
+        })
+        .catch((error) => {
+            console.error("Error submitting data:", error);
+            alert("An error occurred. Please try again later.");
+        });
+    });
+</script>
+
+
+</body>
+</html>

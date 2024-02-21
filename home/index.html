@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <title>SkyLine</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">SKYLINE</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="index.html"  class="active" style="--navAni:1">Home</a></li>
+                <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/" style="--navAni:3">Blog</a></li>
+                <li><a href="form.html" style="--navAni:4">Login</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+
+    <section class="container">
+        <div class="main">
+            <div class="images">
+                <img src="aa.jpg" alt="" class="img-w">
+                <span class="bg-effect-1">
+                <span class="bg-effect-1"></span>
+
+                </span>
+            </div>
+            <div class="detail">
+                <!-- <h3>Hi, I'm</h3> -->
+                <h1><span style="color:#f9532d;">SkyLine</span></h1> 
+                <p>A Company which works hard to develop its country from the base
+                </p>  
+                <!-- <div class="social">
+                    <a href="https://www.linkedin.com/in/vikash-web-dev/" style="--socialAni:1"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/web_devs__/" style="--socialAni:2"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/bikashdev01" style="--socialAni:3"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.youtube.com/@Web_Devs__" style="--socialAni:4"><i class='bx bxl-youtube'></i></a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="main">
+            <div class="detail">
+                <h1><span style="color:#f9532d;">Promoting Sustainable Development</span></h1> 
+                <p>We are committed to promoting sustainable <br> development in the city.</p>  
+            </div>
+        </div>
+    </section>
+    <section class="box-section">
+        <a href="/Solar/index.html" class="box">
+            <img src="1.png" alt="">
+            <div class="box-content">
+                <h3>Solar Home Plan</h3>
+            </div>
+        </a>
+        <a href="/Plastic/index.html" class="box">
+            <img src="2.png" alt="">
+            <div class="box-content">
+                <h3>Recycle Playstic</h3>
+            </div>
+        </a>
+        <a href="/food/index.html" class="box">
+            <img src="3.png" alt="">
+            <div class="box-content">
+                <h3>Donate Food</h3>
+            </div>
+        </a>
+    </section>
+    <section class="box-section">
+        <a href="/R&D/index.html" class="box">
+            <img src="4.png" alt="">
+            <div class="box-content">
+                <h3>Research & Development</h3>
+            </div>
+        </a>
+        <a href="/D&C/index.html" class="box">
+            <img src="5.png" alt="">
+            <div class="box-content">
+                <h3>Design & Infrastructor</h3>
+            </div>
+        </a>
+        <a href="https://main--musical-cupcake-4f1a5c.netlify.app/" class="box">
+            <img src="6.png" alt="">
+            <div class="box-content">
+                <h3>Blog</h3>
+            </div>
+        </a>
+    </section>
+    <section class="contact-section container" id="cs">
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out to us for any inquiries or assistance.</p>
+        <a href="mailto:harikeshav99@gmail.com" class="contact-button"><p>Email Us</p></a>
+    </section>
+    
+    <div class="footer">
+        <div class="logo">Skyline</div>
+        <ul class="nav">
+            <li><a href="/home/index.html#cs">Contact us</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of service</a></li>
+        </ul>
+    </div>
+        
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+
+</html>

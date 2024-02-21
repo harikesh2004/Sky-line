@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Define the style for the header */
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+    background-color: #1D2127;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1f242e;
+    font-size: larger;
+    color: #e9ecf1;
+    padding: 10px;
+    height: 60px; /* Add this line */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+}
+
+
+/* Define the style for the logo */
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Define the style for the navigation links */
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 300px;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav a {
+    color: #dde2ea;
+    text-decoration: none;
+    font-weight:600;
+}
+.apply{
+    display: flex;
+    justify-content: left;
+    padding-left: 150px;
+    padding-top: 40px;
+    padding-bottom: 0%;
+}
+button{
+    border-radius: 25px;
+    margin: 0 50px;
+    height: 50px;
+    width: 200px;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px ;
+    font-weight: bolder;
+    color: #0d0c1d;
+    background: rgb(0,119,227);
+    background: linear-gradient(52deg, rgba(0,119,227,1) 0%, rgba(162,255,249,1) 100%);
+    border: none;
+    box-shadow: rgba(84, 71, 71, 0.35) 0px 5px 15px;
+}
+button:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Define the style for the first section */
+.section1 {
+    position: relative;
+    background-position: left;
+}
+.image-container {
+    flex: 1;
+    margin-right: 20px;
+    margin-left: 50%;
+    padding-left: 7%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(10px 10px 10px rgba(166, 37, 230, 0.888));
+}
+
+/* Define the style for the text on the image */
+.text {
+    position: absolute;
+    top: 19%;
+    left: 40%;
+    padding: 5%;
+    transform: translate(-60%, -10%);
+    font-family: "Roboto Slab", serif;
+    color: #D1D7E0;
+    font-size: 36px;
+    text-align: left;
+}
+ .text h2{
+    font-size: larger;
+ }
+
+/* Define the style for the second section */
+.section2 {
+    display: flex;
+    padding: 100px;
+}
+
+/* Define the style for the two partitions */
+.partition {
+    width: 50%;
+    margin: 10px;
+    margin-left: 40px;
+    padding: 20px;
+    background-color: #252930;
+    border-radius: 30px;
+    box-shadow: #0d0c1d 0px 15px 35px;
+}
+
+/* Define the style for the headings */
+h2 {
+    color: #D1D7E0;
+    font-size: 24px;
+}
+
+/* Define the style for the paragraphs */
+p {
+    color: #AAAEB6;
+    font-size: 18px;
+    line-height: 1.5;
+}
+ol{
+    color: #AAAEB6;
+}
+
+/* Define the style for the third section */
+.section3 {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Define the style for the image container */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    animation: slide 15s infinite;
+}
+
+/* Define the keyframes for the sliding animation */
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+    33% {
+        left: -100%;
+    }
+    66% {
+        left: -200%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/* Define the style for the images */
+.image {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1D2127;
+    color: #D1D7E0;
+    padding: 10px;
+    height: 50px;
+}
+
+/* Add the style for the footer links */
+.footer a {
+    color: #D1D7E0;
+    text-decoration: none;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieved Registration Form Data</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+    
+    /* Define the style for the header */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Outfit', sans-serif;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        font-size: larger;
+        color: #1f242e;
+        padding: 10px;
+        height: 60px; /* Add this line */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    }
+    
+    
+    /* Define the style for the logo */
+    .logo {
+        font-size: 29px;
+        font-weight: bold;
+        padding-left: 10%;
+    }
+    
+    /* Define the style for the navigation links */
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 300px;
+    }
+    
+    .nav li {
+        margin: 0 20px;
+    }
+    
+    .nav a {
+        color: #1f242e;
+        text-decoration: none;
+        font-weight:600;
+    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+    <h2>Retrieved Registration Form Data</h2>
+    <div id="registration-data"></div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyDT5jrIskVpnsiajJdjaDNIielp-TD-51Y",
+    authDomain: "research-and-development-54acf.firebaseapp.com",
+    databaseURL: "https://research-and-development-54acf-default-rtdb.firebaseio.com",
+    projectId: "research-and-development-54acf",
+    storageBucket: "research-and-development-54acf.appspot.com",
+    messagingSenderId: "327211099669",
+    appId: "1:327211099669:web:57654604c3acf8d02a101c",
+    measurementId: "G-9C09KN3M4L"
+  };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Function to display registration form data
+        // Function to display registration form data
+function displayFormData(forms) {
+    var tableContent = '<table><tr><th>Name</th><th>Email</th><th>Affiliation</th><th>Field of Expertise</th><th>Professional Title</th><th>Qualifications</th><th>Contributions</th><th>Communication Channels</th><th>Consent</th></tr>';
+    for (var key in forms) {
+        if (forms.hasOwnProperty(key)) {
+            var formData = forms[key];
+            tableContent += '<tr>';
+            tableContent += '<td>' + formData.name + '</td>';
+            tableContent += '<td>' + formData.email + '</td>';
+            tableContent += '<td>' + formData.affiliation + '</td>';
+            tableContent += '<td>' + (Array.isArray(formData.fieldOfExpertise) ? formData.fieldOfExpertise.join(', ') : formData.fieldOfExpertise) + '</td>';
+            tableContent += '<td>' + formData.professionalTitle + '</td>';
+            tableContent += '<td>' + formData.qualifications + '</td>';
+            tableContent += '<td>' + formData.contribution.join(', ') + '</td>';
+            tableContent += '<td>' + formData.communicationChannels.join(', ') + '</td>';
+            tableContent += '<td>' + (formData.consent ? 'Yes' : 'No') + '</td>';
+            tableContent += '</tr>';
+        }
+    }
+    tableContent += '</table>';
+    document.getElementById('registration-data').innerHTML = tableContent;
+}
+
+
+        // Retrieve all registration forms
+        const formsRef = ref(db, 'registrationForms');
+        get(formsRef).then((snapshot) => {
+            const forms = snapshot.val();
+            if (forms) {
+                displayFormData(forms);
+            } else {
+                document.getElementById('registration-data').innerHTML = 'No registration forms found.';
+            }
+        }).catch((error) => {
+            console.error('Error retrieving forms: ', error);
+            document.getElementById('registration-data').innerHTML = 'An error occurred while retrieving registration forms.';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&D Membership Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+    
+    /* Define the style for the header */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Outfit', sans-serif;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        font-size: larger;
+        color: #1f242e;
+        padding: 10px;
+        height: 60px; /* Add this line */
+        box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+    }
+    
+    
+    /* Define the style for the logo */
+    .logo {
+        font-size: 29px;
+        font-weight: bold;
+        padding-left: 10%;
+    }
+    
+    /* Define the style for the navigation links */
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 300px;
+    }
+    
+    .nav li {
+        margin: 0 20px;
+    }
+    
+    .nav a {
+        color: #1f242e;
+        text-decoration: none;
+        font-weight:600;
+    }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+        .sub {
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            margin-top:15px;
+        }
+        .sub:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SkyLine</div>
+        <ul class="nav">
+            <li><a href="/home/index.html">Home</a></li>
+            <li><a href="https://main--musical-cupcake-4f1a5c.netlify.app/">Blog</a></li>
+            <li><a href="/home/form.html">Login</a></li>
+        </ul>
+    </div>
+    <h2>R&D Membership Form</h2>
+    <form action="#" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="affiliation">Affiliation:</label><br>
+        <input type="text" id="affiliation" name="affiliation" placeholder="current institution, organization, or company"><br>
+        
+        <label for="field-of-expertise">Field of Expertise:</label><br>
+        <select id="field-of-expertise" name="field-of-expertise" multiple>
+            <option value="Renewable Energy">Renewable Energy</option>
+            <option value="Sustainable Agriculture">Sustainable Agriculture</option>
+            <option value="Water Management">Water Management</option>
+            <!-- Add more options as needed -->
+        </select><br>
+        
+        <label for="professional-title">Professional Title:</label><br>
+        <input type="text" id="professional-title" name="professional-title" placeholder="e.g., researcher, engineer, scientist, etc."><br>
+        
+        <label for="qualifications">Qualifications and Experience:</label><br>
+        <textarea id="qualifications" name="qualifications" rows="4" cols="50"></textarea><br>
+
+        <label>Ways of Contribution:</label><br>
+        <input type="checkbox" id="idea-presentations" name="contribution" value="Idea Presentations">
+        <label for="idea-presentations">Idea Presentations</label><br>
+        
+        <div id="idea-upload" style="display: none;">
+            <label for="idea-file">Upload Presentation:</label><br>
+            <input type="file" id="idea-file" name="idea-file"><br>
+        </div>
+        
+        <input type="checkbox" id="problem-solving" name="contribution" value="Problem Solving">
+        <label for="problem-solving">Problem Solving</label><br>
+        <div id="problem-solving-details" style="display: none;">
+            <label for="problem-solving-info">Describe Problem Solving Skills:</label><br>
+            <textarea id="problem-solving-info" name="problem-solving-info" rows="4" cols="50"></textarea><br>
+        </div>
+
+        <input type="checkbox" id="data-analysis" name="contribution" value="Data Analysis">
+        <label for="data-analysis">Data Analysis</label><br>
+        <div id="data-analysis-details" style="display: none;">
+            <label for="data-analysis-info">Describe Data Analysis Skills:</label><br>
+            <textarea id="data-analysis-info" name="data-analysis-info" rows="4" cols="50"></textarea><br>
+        </div>
+        
+        <input type="checkbox" id="programming" name="contribution" value="Programming">
+        <label for="programming">Programming</label><br>
+        
+        <div id="programming-languages" style="display: none;">
+            <!-- Removed checkboxes for Java and Python -->
+        </div>
+        
+        <div id="programming-details" style="display: none;">
+            <label for="programming-info" style="color:orangered;">Additional Details:</label><br>
+            <textarea id="programming-info" name="programming-info" rows="4" cols="50"></textarea><br>
+        </div>
+        
+        <input type="checkbox" id="management" name="contribution" value="Management">
+        <label for="management">Management</label><br>
+        <div id="management-details" style="display: none;">
+            <label for="management-info">Provide Management Info:</label><br>
+            <textarea id="management-info" name="management-info" rows="4" cols="50"></textarea><br>
+        </div>
+        
+        <input type="checkbox" id="laboratory-equipment" name="contribution" value="Laboratory Equipment">
+        <label for="laboratory-equipment">Laboratory Equipment</label><br>
+        
+        <input type="checkbox" id="funding" name="contribution" value="Funding">
+        <label for="funding">Funding</label><br>
+        <!-- Add more contribution options as needed -->
+        
+        <label for="communication-channels">Preferred Communication Channels:</label><br>
+        <input type="checkbox" id="email-checkbox" name="communication-channels" value="email"> Email<br>
+        <input type="checkbox" id="forums-checkbox" name="communication-channels" value="forums"> Online Forums<br>
+        <input type="checkbox" id="webinars-checkbox" name="communication-channels" value="webinars"> Webinars<br>
+        <!-- Add more options as needed -->
+        
+        <br>
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I agree to the collection and processing of my personal data.</label><br>
+        
+        <button type="submit" class="sub" id="submt">Submit</button>
+    </form>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyDT5jrIskVpnsiajJdjaDNIielp-TD-51Y",
+        authDomain: "research-and-development-54acf.firebaseapp.com",
+        databaseURL: "https://research-and-development-54acf-default-rtdb.firebaseio.com",
+        projectId: "research-and-development-54acf",
+        storageBucket: "research-and-development-54acf.appspot.com",
+        messagingSenderId: "327211099669",
+        appId: "1:327211099669:web:57654604c3acf8d02a101c",
+        measurementId: "G-9C09KN3M4L"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById("submt").addEventListener("click", function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('name').value;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                affiliation: document.getElementById('affiliation').value,
+                fieldOfExpertise: document.getElementById('field-of-expertise').value,
+                professionalTitle: document.getElementById('professional-title').value,
+                qualifications: document.getElementById('qualifications').value,
+                contribution: getSelectedValues("contribution"),
+                communicationChannels: getSelectedValues("communication-channels"),
+                consent: document.getElementById('consent').checked
+            };
+
+            set(ref(db, 'registrationForms/' + username), formData)
+                .then(() => {
+                    alert("Registration successful!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                    alert("An error occurred. Please try again later.");
+                });
+        });
+
+       // Function to get selected values from checkboxes
+        function getSelectedValues(name) {
+            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+            const values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            return values;
+        }
+    </script>
+</body>
+</html>

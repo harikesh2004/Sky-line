@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations</title>
+    <style>
+        /* Card styling */
+        .card {
+    width: calc(75% - 10px); /* Calculate width to fit 4 cards in a row with padding */
+    margin: 5px; /* Adjust margin as needed */
+    padding: 10px; /* Add padding */
+    border: 1px solid red; /* Set border color to red */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    list-style-type: none; /* Remove bullet points */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+        .card:hover {
+            box-shadow: 0 4px 8px 0 rgba(215, 12, 12, 0.4);
+            /* transform: translateY(56px); Lift card on hover */
+        }
+
+        .card-content {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            line-height: 1.6;
+            text-align:center;
+        }
+
+        .card-content strong {
+            font-weight: bold;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Registrations</h1>
+    <div class="total">
+    <ul id="registrations-list" class="container"></ul>
+</div>
+
+    <!-- Include Firebase SDK using script tags -->
+    <!-- Firebase compatibility version -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase , ref , onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        
+        // Your Firebase configuration
+        const firebaseConfig = {
+    apiKey: "AIzaSyAuMdVMfBpWrBJwXIVwefM8yYL3gqS2jyo",
+    authDomain: "plastic-1ebd8.firebaseapp.com",
+    databaseURL: "https://plastic-1ebd8-default-rtdb.firebaseio.com",
+    projectId: "plastic-1ebd8",
+    storageBucket: "plastic-1ebd8.appspot.com",
+    messagingSenderId: "59231060748",
+    appId: "1:59231060748:web:f187371df26af398bd3f29",
+    measurementId: "G-TEJXTWVCQQ"
+  };
+            
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    
+        // Reference to the "registrations" node in the database
+        const registrationsRef = ref(db, 'users');
+    
+        // Function to retrieve the data from Firebase and display it
+        function retrieveData() {
+          onValue(registrationsRef, (snapshot) => {
+            const registrationsList = document.getElementById('registrations-list');
+    
+            if (snapshot.exists()) {
+              snapshot.forEach((childSnapshot) => {
+                const registration = childSnapshot.val();
+                const cardItem = document.createElement('li');
+                cardItem.classList.add('card');
+                cardItem.innerHTML = `
+                  <div class="card-content">
+                    <strong>Full Name:</strong> ${registration.fullName}<br>
+                    <strong>Email:</strong> ${registration.email}<br>
+                    <strong>Phone:</strong> ${registration.phone}<br>
+                    <strong>Address:</strong> ${registration.address}<br>
+                    <strong>City:</strong> ${registration.city}<br>
+                    <strong>State:</strong> ${registration.state}<br>
+                    <strong>Zip:</strong> ${registration.zip}<br>
+                    <strong>Country:</strong> ${registration.country}<br>
+                    <strong>Plastic Type:</strong> ${registration.plasticType}<br>
+                    <strong>Quantity:</strong> ${registration.quantity}<br>
+                    <strong>Condition:</strong> ${registration.condition}<br>
+                    <strong>Packaging:</strong> ${registration.packaging}<br>
+                    <strong>Additional info:</strong> ${registration.additionalInfo}<br>
+                    <strong>Plastic Selling:</strong> ${registration.plasticSelling}<br>
+                    <strong>Availability:</strong> ${registration.availability}<br>
+                  </div>
+                `;
+                registrationsList.appendChild(cardItem);
+              });
+            } else {
+              registrationsList.innerHTML = '<li>No registrations found.</li>';
+            }
+          });
+        }
+    
+        // Call the function to retrieve data and display it
+        retrieveData();
+    </script>
+</body>
+</html>

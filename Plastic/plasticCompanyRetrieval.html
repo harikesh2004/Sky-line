@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plastic Recycling Company Forms</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  * {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #f2f2f2;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    width: calc(25% - 20px); /* Adjust according to margins and paddings */
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border:2px solid orangered;
+    box-shadow: 5px 5px 15px pink;
+  }
+  .card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+  <h1><center>Plastic Recycling Company Forms</center></h1>
+  <div class="card-container" id="cardContainer"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAVMSLXmkFKT3phpxFI8VoChQgbFOTMkYE",
+    authDomain: "plastic-company-5bd6b.firebaseapp.com",
+    databaseURL: "https://plastic-company-5bd6b-default-rtdb.firebaseio.com",
+    projectId: "plastic-company-5bd6b",
+    storageBucket: "plastic-company-5bd6b.appspot.com",
+    messagingSenderId: "676848296997",
+    appId: "1:676848296997:web:c48214062a64ce6c6d0bcc",
+    measurementId: "G-41L19GDWJ9"
+  };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const cardContainer = document.getElementById('cardContainer');
+
+    // Function to create a card
+    function createCard(data) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const companyName = document.createElement('h2');
+      companyName.textContent = data.companyName;
+
+      const contactPerson = document.createElement('p');
+      contactPerson.textContent = `Contact Person: ${data.contactPerson}`;
+
+      const email = document.createElement('p');
+      email.textContent = `Email: ${data.email}`;
+
+      const phone = document.createElement('p');
+      phone.textContent = `Phone: ${data.phone}`;
+
+      const processDescription = document.createElement('p');
+      processDescription.textContent = `Recycling Process: ${data.processDescription}`;
+
+      const offer = document.createElement('p');
+      offer.textContent = `Offer to Seller: ${data.offer}`;
+
+      card.appendChild(companyName);
+      card.appendChild(contactPerson);
+      card.appendChild(email);
+      card.appendChild(phone);
+      card.appendChild(processDescription);
+      card.appendChild(offer);
+
+      cardContainer.appendChild(card);
+    }
+
+    // Retrieve data from Firebase and create cards
+    const formsRef = ref(db, 'plasticRecyclingForms');
+    onValue(formsRef, (snapshot) => {
+      const data = snapshot.val();
+      for (const formKey in data) {
+        const formData = data[formKey];
+        createCard(formData);
+      }
+    });
+  </script>
+</body>
+</html>

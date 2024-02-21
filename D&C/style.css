@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Revolution&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Define the style for the header */
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    font-size: larger;
+    color: #2673ef;
+    padding: 10px;
+    height: 60px; /* Add this line */
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
+}
+
+
+/* Define the style for the logo */
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Define the style for the navigation links */
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 300px;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav a {
+    color: #4a8cf7;
+    text-decoration: none;
+    font-weight:600;
+}
+
+.moon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f1c40f;
+    position: relative;
+    cursor: pointer;
+}
+
+.dark {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    transform: rotate(25deg);
+}
+
+.apply{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    padding-top: 70px;
+    padding-bottom: 0%;
+}
+button{
+    border-radius: 25px;
+    margin: 0 50px;
+    height: 50px;
+    width: 200px;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px ;
+    font-weight: bolder;
+    color: #0d0c1d;
+    background: rgb(0,119,227);
+    background: linear-gradient(52deg, rgba(0,119,227,1) 0%, rgba(162,255,249,1) 100%);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+button:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Define the style for the first section */
+.section1 {
+    position: relative;
+    height: 500px;
+    background-image: url("12.jpg"); /* Replace with your own image */
+    background-size: cover;
+    background-position: center;
+}
+img{
+    width: 100%;
+    height:95%;
+}
+
+/* Define the style for the text on the image */
+.text {
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto Slab", serif;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    text-align: center;
+}
+
+/* Define the style for the second section */
+.section2 {
+    display: flex;
+    padding: 100px;
+}
+
+/* Define the style for the two partitions */
+.partition {
+    width: 50%;
+    margin: 10px;
+}
+
+/* Define the style for the headings */
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Define the style for the paragraphs */
+p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Define the style for the third section */
+.section3 {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Define the style for the image container */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    animation: slide 15s infinite;
+}
+
+/* Define the keyframes for the sliding animation */
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+    33% {
+        left: -100%;
+    }
+    66% {
+        left: -200%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/* Define the style for the images */
+.image {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+    color: #4a8cf7;
+    padding: 10px;
+    height: 50px;
+}
+
+/* Add the style for the footer links */
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+/* Define the style for the dark mode header */
+.dark-mode .header {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode .footer {
+    background-color: #222;
+    color: white;
+}
+/* Define the style for the dark mode navigation links */
+.dark-mode .nav a {
+    color: white;
+}
+
+/* Define the style for the dark mode moon icon */
+.dark-mode .moon {
+    background-color: white;
+}
+
+/* Define the style for the dark mode dark circle */
+.dark-mode .dark {
+    background-color: #222;
+}
+
+/* Define the style for the dark mode headings */
+.dark-mode h2 {
+    color: white;
+}
+
+/* Define the style for the dark mode paragraphs */
+.dark-mode p {
+    color: #ccc;
+}
